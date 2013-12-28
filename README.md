@@ -107,3 +107,6 @@ Mark Invoice As Paid
 
     $payment->create()
     	or die("Unable to mark Invoice as paid: " . $payment->lastError);
+    	
+    // Note: this will automatically send the client a payment notification e-mail
+    // letting them know that their invoice has been paid.
