@@ -66,6 +66,16 @@ New Client
         print_r($client);
     }
     
+Lookup Invoice By InvoiceID #00000324301
+----------------------------------------
+
+    $invoice = new Freshbooks_Invoice();
+
+    $invoice->get('00000324301')
+    	or die("Unable to get Invoice: " . $invoice->lastError);
+
+    print_r($invoice);
+    
 Lookup Invoice(s) for Client #17992
 -----------------------------------
 
