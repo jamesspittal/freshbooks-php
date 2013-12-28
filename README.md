@@ -93,3 +93,17 @@ Lookup Invoice(s) for Client #17992
     	print_r($resultInfo);
     }
 
+Mark Invoice As Paid
+--------------------
+
+    $payment = new Freshbooks_Payment();
+
+    $payment->invoiceId = '00000324300';
+
+    // To mark payment as 'PAID', this amount must be the full amount outstanding on the invoice
+    $payment->amount    = '2.44';
+
+    $payment->type      = 'Bank Transfer';
+
+    $payment->create()
+    	or die("Unable to mark Invoice as paid: " . $payment->lastError);
