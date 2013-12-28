@@ -65,3 +65,21 @@ New Client
         //investigate populated data
         print_r($client);
     }
+    
+Lookup Invoice(s) for Client #17992
+-----------------------------------
+
+    $invoice = new Freshbooks_Invoice();
+
+    $invoice->listing($rows, $resultInfo, 1, 3, array('clientId' => 17992,
+    				                              'status' => '',
+    						                      'dateTo' => '',
+    						                      'dateFrom' => '',
+    						                      'recurringId' => ''))
+    	or die("Unable to grab Invoice listing: " . $invoice->lastError);
+
+    if ($invoice) {
+    	print_r($rows);
+    	print_r($resultInfo);
+    }
+
